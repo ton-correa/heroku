@@ -1,8 +1,9 @@
 const express = require('express');
 const routes = express.Router();
+const ApiUserController = require("./controllers/ApiUserController");
 
-routes.get('/', (req, res, next) => {
-    res.send('Funcionou!!');
-});
+routes
+    .post('/', ApiUserController.create)
+    .get('/', ApiUserController.read);
 
 module.exports = routes;
